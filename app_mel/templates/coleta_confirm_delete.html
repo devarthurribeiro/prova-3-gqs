@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar exclusão de Coleta</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white">
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl mb-8 text-center">Confirmar Exclusão de Coleta</h1>
+    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden bg-gray-900">
+        <div class="px-5 py-3">
+            <h3 class="text-lg font-semibold">Tem certeza que deseja excluir esta coleta?</h3>
+        </div>
+        <div class="flex justify-center items-center px-5 py-3 bg-gray-700">
+            <form action="{% url 'coleta_delete' coleta.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">
+                    Confirmar Exclusão
+                </button>
+            </form>
+            <a href="{% url 'coletas' %}" class="ml-4 text-white">Cancelar</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

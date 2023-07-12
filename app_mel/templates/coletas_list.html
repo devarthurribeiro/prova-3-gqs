@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Coletas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white">
+{% include 'navbar.html' %}
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl mb-8 text-center">Listagem de Coletas</h1>
+    <table class="w-full text-md bg-gray-900 shadow-md rounded mb-4">
+        <tbody>
+        <tr class="border-b border-gray-700">
+            <th class="text-left p-3 px-5">ID</th>
+            <th class="text-left p-3 px-5">Criação</th>
+            <th class="text-left p-3 px-5">Data</th>
+            <th class="text-left p-3 px-5">Quantidade</th>
+            <th class="text-left p-3 px-5">Excluir</th>
+            <th class="text-left p-3 px-5">Editar</th>
+        </tr>
+        {% for coleta in coletas %}
+            <tr class="border-b border-gray-700 hover:bg-gray-700">
+                <td class="p-3 px-5">{{ coleta.id }}</td>
+                <td class="p-3 px-5">{{ coleta.criacao.raca }}</td>
+                <td class="p-3 px-5">{{ coleta.data }}</td>
+                <td class="p-3 px-5">{{ coleta.quantidade }}</td>
+                <td class="p-3 px-5">
+                    <form action="{% url 'coleta_delete' coleta.id %}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir esta coleta?')">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded">
+                            Excluir
+                        </button>
+                    </form>
+                </td>
+                <td class="p-3 px-5">
+                    <a href="{% url 'coleta_update' pk=coleta.id %}">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+                            Editar
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

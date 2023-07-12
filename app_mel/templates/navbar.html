@@ -1,0 +1,16 @@
+<nav class="bg-purple-900 py-4 px-6 flex items-center justify-between">
+    <div>
+        <a href="{% url 'relatorio_coleta' %}" class="text-white text-xl font-bold">Coleta Mel</a>
+    </div>
+    <ul class="flex space-x-4">
+        <li>
+            <a href="{% url 'coletas' %}" class="text-white hover:text-purple-300">Coletas</a>
+        </li>
+        <li>
+            <a href="{% url 'coleta_create' %}" class="text-white hover:text-purple-300">Nova Coleta</a>
+        </li>
+        <li>
+            <a href="{% url 'relatorio_coleta' %}" class="text-white hover:text-purple-300">Relatório de Coleta</a>
+        </li>
+    </ul>
+</nav>

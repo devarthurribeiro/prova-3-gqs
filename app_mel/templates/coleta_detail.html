@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes da Coleta</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white">
+<nav class="bg-gray-900 p-4">
+    <div class="container mx-auto flex items-center justify-between">
+        <a href="#" class="text-xl font-bold text-white">Aplicação Mel</a>
+        <div>
+            <a href="#" class="text-white px-4">Início</a>
+            <a href="#" class="text-white px-4">Sobre</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl mb-8 text-center">Detalhes da Coleta</h1>
+    <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden bg-gray-900">
+        <div class="flex justify-between px-5 pt-3">
+            <h3 class="text-lg font-semibold">ID: {{ coleta.id }}</h3>
+        </div>
+        <div class="px-5 py-2">
+            <h3 class="text-lg font-semibold">Criação: {{ coleta.criacao.raca }}</h3>
+            <p class="text-sm text-gray-400">Data de entrada: {{ coleta.criacao.data_entrada }}</p>
+        </div>
+        <div class="px-5 py-2">
+            <h3 class="text-lg font-semibold">Data da Coleta: {{ coleta.data }}</h3>
+        </div>
+        <div class="px-5 py-2">
+            <h3 class="text-lg font-semibold">Quantidade Coletada: {{ coleta.quantidade }} kg</h3>
+        </div>
+    </div>
+</div>
+</body>
+</html>
